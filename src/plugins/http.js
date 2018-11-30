@@ -1,8 +1,15 @@
+// 插件模块
+
 import axios from 'axios'
-const MyPluginHttp = {}
-MyPluginHttp.install =  (Vue) => {
-    //  添加实例方法
-    axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
-    Vue.prototype.$http = axios
-  }
-  export default MyPluginHttp
+
+const MyHttpServer = {}
+
+MyHttpServer.install = (Vue) => {
+
+  axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
+
+  //  添加实例方法
+  Vue.prototype.$http = axios
+}
+
+export default MyHttpServer
