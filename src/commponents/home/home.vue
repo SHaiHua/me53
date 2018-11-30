@@ -27,7 +27,7 @@
               <i class="el-icon-location"></i>
               <span>用户管理</span>
             </template>
-            <el-menu-item>
+            <el-menu-item index="1-1">
               <i class="el-icon-setting"></i>
               <span>用户列表</span>
             </el-menu-item>
@@ -38,11 +38,11 @@
               <i class="el-icon-location"></i>
               <span>权限管理</span>
             </template>
-            <el-menu-item>
+            <el-menu-item index="1-1">
               <i class="el-icon-setting"></i>
               <span>角色列表</span>
             </el-menu-item>
-            <el-menu-item>
+            <el-menu-item index="1-1">
               <i class="el-icon-setting"></i>
               <span>权限列表</span>
             </el-menu-item>
@@ -53,15 +53,15 @@
               <i class="el-icon-location"></i>
               <span>商品管理</span>
             </template>
-            <el-menu-item>
+            <el-menu-item index="1-1">
               <i class="el-icon-setting"></i>
               <span>商品列表</span>
             </el-menu-item>
-            <el-menu-item>
+            <el-menu-item index="1-1">
               <i class="el-icon-setting"></i>
               <span>分类参数</span>
             </el-menu-item>
-            <el-menu-item>
+            <el-menu-item index="1-1">
               <i class="el-icon-setting"></i>
               <span>商品分类</span>
             </el-menu-item>
@@ -72,7 +72,7 @@
               <i class="el-icon-location"></i>
               <span>订单管理</span>
             </template>
-            <el-menu-item>
+            <el-menu-item index="1-1">
               <i class="el-icon-setting"></i>
               <span>选项1</span>
             </el-menu-item>
@@ -83,7 +83,7 @@
               <i class="el-icon-location"></i>
               <span>数据统计</span>
             </template>
-            <el-menu-item>
+            <el-menu-item index="1-1">
               <i class="el-icon-setting"></i>
               <span>选项1</span>
             </el-menu-item>
@@ -97,7 +97,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+    beforeCreate(){
+        // 获取token
+        const token = localStorage.getItem('token');
+        if(!token) {
+            this.$router.push({name: 'login'})
+        } else {
+
+        }
+    }
+};
 </script>
 
 <style>
