@@ -24,17 +24,38 @@ export default {
     };
   },
   methods: {
-    handleLogin() {
-      this.$http.post("login", this.formdata).then(res => {
+    async handleLogin() {
+      // 希望 让异步操作的代码看起来像同步代码
+      // ES7 async + await
+      const res = await this.$http.post("login", this.formdata)
         //   console.log(res);
-        const {data, meta:{msg,status}} = res.data
+        const {
+          data,
+          meta: { msg, status }
+        } = res.data;
         if (status === 200) {
-            this.$router.push({name: 'home'});
-            this.$message.success(msg);
+          this.$router.push({ name: "home" });
+          this.$message.success(msg);
         } else {
-            this.$message.warning(msg)
+          this.$message.warning(msg);
         }
-      });
+      
+
+
+      // 异步操作
+      // this.$http.post("login", this.formdata).then(res => {
+      //   //   console.log(res);
+      //   const {
+      //     data,
+      //     meta: { msg, status }
+      //   } = res.data;
+      //   if (status === 200) {
+      //     this.$router.push({ name: "home" });
+      //     this.$message.success(msg);
+      //   } else {
+      //     this.$message.warning(msg);
+      //   }
+      // })
     }
   }
 };
